@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusConnect</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Google Identity Services -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <script src="config.js" defer></script>
+  <script src="scripts.js" defer></script>
+</head>
+
+<body>
+  <!-- Landing Page Container -->
+  <div id="landingContainer">
+    <img src="/assets/LOGO.png" alt="CampusConnect Logo" id="landingLogo" />
+    <h1>Welcome to CampusConnect</h1>
+    <p class="landing-desc">
+      Discover campus events, RSVP, and track your participation.<br>
+      Organizers can create, manage, and analyze events.
+    </p>
+
+    <!-- Google Sign-In, upon success of g_id_onload data-callback runs onSignIn func in scripts.js -->
+    <div id="g_id_onload"
+         data-client_id="242556221574-ntal0fk157jj15l9rr5528ivqagbohtq.apps.googleusercontent.com"
+         data-callback="onSignIn"
+         data-auto_prompt="false">
+    </div>
+    <!-- Standard sign in button, feel free to change-->
+    <div class="g_id_signin"
+         data-type="standard"
+         data-size="large"
+         data-theme="outline"
+         data-text="sign_in_with"
+         data-shape="rectangular"
+         data-logo_alignment="left">
+    </div>
+  </div>
+
+  <!-- Main Website Content -->
+  <div id="mainContent">
+    <header>
+      <h1>CampusConnect</h1>
+      <nav>
+        <ul>
+          <li><a>Discover Events</a></li>
+          <li><a>My Events</a></li>
+          <li><a>Manage Events</a></li>
+          <li><a>Analytics</a></li>
+        </ul>
+      </nav>
+      <div id="userInfo"></div>
+    </header>
+
+
+    <footer>
+      <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,201 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f7f9fb;
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: #2d5be3;
+    color: #fff;
+    padding: 1.5rem 0 1rem 0;
+    box-shadow: 0 2px 8px rgba(45,91,227,0.08);
+}
+
+header h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #ffd700;
+}
+
+main {
+    flex: 1;
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+section {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+section h2 {
+    color: #2d5be3;
+    margin-bottom: 1.2rem;
+    font-size: 1.6rem;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+textarea {
+    width: 100%;
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #f4f6fa;
+    transition: border 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+textarea:focus {
+    border: 1.5px solid #2d5be3;
+    outline: none;
+}
+
+button[type="submit"] {
+    background: #2d5be3;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button[type="submit"]:hover {
+    background: #1741a6;
+}
+
+#eventsList,
+#myEventsList,
+#managedEventsList,
+#analyticsDashboard {
+    margin-top: 1rem;
+    min-height: 60px;
+}
+
+footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-top: auto;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.03);
+}
+
+#landingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    background: linear-gradient(135deg, #e3ecff 0%, #f7f9fb 100%);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(45,91,227,0.08);
+    margin: 2rem auto;
+    max-width: 420px;
+    padding: 2.5rem 2rem 2rem 2rem;
+}
+
+#landingLogo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1.2rem;
+}
+
+#landingContainer h1 {
+    color: #2d5be3;
+    font-size: 2.2rem;
+    margin-bottom: 0.7rem;
+    text-align: center;
+}
+
+.landing-desc {
+    color: #444;
+    font-size: 1.1rem;
+    margin-bottom: 2.2rem;
+    text-align: center;
+    line-height: 1.5;
+}
+
+#landingContainer #g_id_onload,
+#landingContainer .g_id_signin {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+}
+
+#mainContent {
+    display: none;
+}
+
+#g_id_onload,
+.g_id_signin {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+/* Responsive Design */
+@media (max-width: 700px) {
+    main {
+        padding: 0 0.5rem;
+    }
+    section {
+        padding: 1rem;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    #landingContainer {
+        max-width: 95vw;
+        padding: 1.2rem 0.5rem;
+    }
+    #landingLogo {
+        width: 60px;
+        height: 60px;
+    }
+}
