@@ -12,19 +12,58 @@
   <!-- Supabase-->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  <script src="config.js" defer></script>
-  <script src="scripts.js" defer></script>
-  
 </head>
 
 <body>
-  <!-- Use this Page for testing -->
-  <div>
+  <!-- Testing Page for Backend -->
+  <div id="events">
     <p>Test</p>
 
-    <footer>
+    
+  </div>
+  <footer>
       <p>&copy; 2025 CampusConnect. All rights reserved.</p>
     </footer>
-  </div>
+
+  <script>
+    const SUPABASE_URL = "https://mtjgmoctyzgfubkpsydg.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im10amdtb2N0eXpnZnVia3BzeWRnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk2Mjc5MTksImV4cCI6MjA3NTIwMzkxOX0.9Ku1_VjUhsBUtHwPSiBCYAez8sWyhK0x6Hc2SVxpqnk";
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    async function loadEvents() {
+    const { data, error } = await supabaseClient
+      .from('events')
+      .select('*');
+
+    console.log('Events fetched:', data);
+
+    const container = document.getElementById('events');
+    container.innerHTML = '';
+
+    if (error) {
+      container.innerHTML = `<p>Error loading events: ${error.message}</p>`;
+      return;
+    }
+
+    if (!data || data.length === 0) {
+      container.innerHTML = '<p>No events found.</p>';
+      return;
+    }
+
+    data.forEach(event => {
+      const eventDiv = document.createElement('div');
+      eventDiv.className = 'event';
+      eventDiv.innerHTML = `
+        <strong>${event.title}</strong><br>
+        ${event.description || ''}<br>
+        ${new Date(event.start_time).toLocaleString()} 
+        ${event.end_time ? '- ' + new Date(event.end_time).toLocaleString() : ''}
+      `;
+      container.appendChild(eventDiv);
+      });
+    }
+
+  loadEvents();
+  </script>
 </body>
 </html>
