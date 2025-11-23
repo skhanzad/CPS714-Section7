@@ -1,0 +1,17 @@
+{
+  "name": "cps714-section7",
+  "version": "1.0.0",
+  "description": "",
+  "main": "adminScripts.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.10.1"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.84.0"
+  }
+}

@@ -175,4 +175,42 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // Test Login Button logic
+  const testLoginBtn = document.getElementById("testLoginBtn");
+  if (testLoginBtn) {
+    testLoginBtn.addEventListener("click", async function() {
+      // Test user data
+      const testUser = {
+        club: "test club",
+        created_at: "2025-11-16T21:50:33.473551+00:00",
+        email: "eric.shaw@torontomu.ca",
+        firstName: "Eric",
+        id: 11,
+        lastName: "Shaw",
+        role: "System Administrator"
+      };
+
+      // Store test user in sessionStorage
+      sessionStorage.setItem("userData", JSON.stringify(testUser));
+      sessionStorage.setItem("credential", "test"); // Placeholder
+      sessionStorage.setItem("role", testUser.role);
+
+      // Show main content, hide landing
+      document.getElementById("mainContent").style.display = "block";
+      document.getElementById("landingContainer").style.display = "none";
+
+      // Show admin console link if role is System Administrator
+      if (testUser.role === "System Administrator") {
+        const userInfoDiv = document.getElementById("userInfo");
+        userInfoDiv.innerHTML = `
+          <div style="display:flex;align-items:center;gap:10px;">
+            <a href="/console.html" style="text-decoration:none;color:inherit;">
+              <span>Admin Console</span>
+            </a>
+          </div>
+        `;
+      }
+    });
+  }
 });
